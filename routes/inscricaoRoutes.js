@@ -35,12 +35,12 @@ router.post('/inscricao', authMiddleware, async (req, res) => {
   
 
       const userId = req.user.id;
-      const aluno = await aluno.findByUserId(userId);
+      const aluno = await Aluno.findOne({ where: { id: userId } });
   
       if (!aluno) {
         return res.status(401).json({ error: 'Você precisa ter um cadastro de aluno para cancelar inscrições em cursos.' });
       }
-  
+   
       inscricaoController.cancelarInscricao(req, res);
     } catch (error) {
       console.log(error);
