@@ -78,6 +78,10 @@ Para inscrição nos cursos é necessário esta logado na aplicação atraves da
 A inscrição deve ser realizada utilizando a rota: `POST /inscricoes/inscricao`
 
 Também é possivel cancelar a inscricao em algum curso atraves da rota: `PUT /inscricoes/inscricao/:id/cancelar`
+Passando no json o id da inscrição que deseja cancelar: `{
+  "token":"Seu token",
+}`
+Na rota de cancelamento no lugar do :id você deverá passar a id da inscrição que deseja cancelar, exemplo : `PUT /inscricoes/inscricao/1/cancelar`
 
 ## Endpoints da API
 
