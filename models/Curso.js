@@ -1,15 +1,23 @@
-const Sequelize = require('sequelize');
-const sequelize = require('../config/database');
+
+const { Sequelize, DataTypes } = require('sequelize');
+const sequelize = require("../config/database");
+
 
 const Curso = sequelize.define('curso', {
-  nome: {
-    type: Sequelize.STRING,
-    allowNull: false,
-  },
-  inicio: {
-    type: Sequelize.DATE,
-    allowNull: false,
-  },
-});
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
+    },
+    nome: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    inicio: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
+  }
+);
 
 module.exports = Curso;

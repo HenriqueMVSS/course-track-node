@@ -1,8 +1,8 @@
-const Inscricao = require('../models/Curso');
+const Inscricao = require('../models/Inscricao');
 
 exports.realizarInscricao = async (req, res) => {
   const { cursoId } = req.body;
-  const alunoId = req.userId;
+  const alunoId = req.user.id;
 
   try {
     const inscricao = await Inscricao.findOne({ where: { alunoId, cursoId } });
@@ -22,7 +22,7 @@ exports.realizarInscricao = async (req, res) => {
 
 exports.cancelarInscricao = async (req, res) => {
   const { id } = req.params;
-  const alunoId = req.userId;
+  const alunoId = req.user.id;
 
   try {
     const inscricao = await Inscricao.findOne({ where: { id, alunoId } });
